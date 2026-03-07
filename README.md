@@ -4,6 +4,10 @@ A production-grade MLOps platform for monitoring deployed ML models, detecting d
 Dataset used :- LOAN PREDICTION PROBLEM DATASET (Kaggle)
 
 Team Roles :
+
 ML Model + Integeration - Anjali kumari 
+
 Frontend - Vaishnavi Pandey
-Backend - Abhay Tarkar
+
+Backend - Abhay 
+
