@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: ml-monitoring-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+  - type: web
+    name: ml-monitoring-frontend
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: ml-monitoring-backend
+          envVarKey: RENDER_EXTERNAL_URL
+          # Note: We need to append /api to the URL, but Render's native fromService doesn't allow concatenation directly here. 
+          # We'll use a bash trick or just let the app handle it. Actually, wait. 
+          # The backend's app.py exposes /api/... routes.
+          # We'll set NEXT_PUBLIC_API_BASE to the RENDER_EXTERNAL_URL, and then the frontend can append /api
+      - key: NODE_ENV
+        value: production

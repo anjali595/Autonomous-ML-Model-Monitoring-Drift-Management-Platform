@@ -1,91 +1,85 @@
-# My Monitoring App
+# Autonomous ML Model Monitoring & Drift Management Platform 🚀
 
-This project is a machine learning model monitoring application built with a Flask backend and a Next.js frontend. It provides functionalities to monitor model performance, manage datasets, and handle alerts related to model drift and data drift.
+![SaaS Dashboard Preview](https://img.shields.io/badge/Status-Active-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Version](https://img.shields.io/badge/Version-1.0.0-orange)
 
-## Project Structure
+An end-to-end, real-time machine learning monitoring solution designed to give data science and ML engineering teams deep visibility into their production models. Detect data drift, monitor model performance, and track anomalies automatically through a beautiful, modern SaaS interface.
 
+---
+
+## 🌟 Key Features
+
+*   **Real-time Dashboard Analytics:** Monitor vital model metrics, predictions, and recent alerts dynamically at a glance.
+*   **Statistical Drift Detection:** Automatically track Population Stability Index (PSI), Kolmogorov-Smirnov (KS) Statistic, and KL Divergence for all registered models.
+*   **Model Registry & Management:** Upload trained model artifacts (`.pkl`, `.joblib`, `.h5`, etc.) securely and manage their versions seamlessly.
+*   **Live Predictions & Probabilities:** Instantly execute predictions against your live endpoints with high-performance automated feature inference.
+*   **Automated Alerting Engine:** Intelligent thresholds alert your team immediately when data drift or performance degradation is detected.
+
+## 🏗 Architecture & Tech Stack
+
+This platform is divided into a robust RESTful Python backend and a highly responsive Next.js frontend, orchestrated together for seamless deployment.
+
+### Backend (API Engine)
+*   **Framework:** Flask
+*   **Database:** SQLite / SQLAlchemy (ORM)
+*   **ML Integration:** Scikit-Learn, NumPy, Joblib
+*   **Security:** JWT Authentication
+*   **Deployment:** Gunicorn
+
+### Frontend (User Interface)
+*   **Framework:** Next.js (React)
+*   **Styling:** Tailwind CSS (with custom SaaS UI components)
+*   **Charts:** Recharts for dynamic, fluid data visualization
+*   **Icons & Animation:** Lucide React, Framer Motion
+
+---
+
+## ⚙️ Local Setup Instructions
+
+To run this platform locally for development and testing:
+
+### 1. Backend Setup
+
+Navigate to the `backend` directory, set up your Python environment, and start the Flask server:
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
+python app.py
 ```
-my-monitoring-app
-├── backend
-│   ├── app.py                # Main entry point for the Flask backend application
-│   ├── requirements.txt       # Python dependencies for the backend
-│   ├── models.py              # Data models used in the application
-│   ├── routes
-│   │   ├── api.py            # API routes for handling requests
-│   │   └── auth.py           # Authentication-related routes
-│   ├── services
-│   │   └── monitor.py        # Business logic for monitoring models
-│   ├── templates
-│   │   └── base.html         # Base HTML template for rendering views
-│   └── static
-│       ├── css               # CSS files for styling
-│       └── js                # JavaScript files for client-side functionality
-├── frontend
-│   ├── package.json           # Configuration for the Next.js frontend
-│   ├── next.config.js         # Configuration settings for Next.js
-│   ├── pages
-│   │   ├── index.js          # Main entry point for the Next.js application
-│   │   ├── models.js         # Models overview page
-│   │   └── alerts.js         # Alerts page
-│   ├── components
-│   │   ├── Dashboard.js      # Dashboard component displaying statistics
-│   │   ├── ModelCard.js      # Component for displaying individual model information
-│   │   └── AlertList.js      # Component for listing recent alerts
-│   ├── styles
-│   │   ├── globals.css       # Global CSS styles
-│   │   └── dashboard.module.css # CSS module styles for the dashboard
-├── .gitignore                 # Files and directories to be ignored by Git
-└── README.md                  # Documentation for the project
+*The backend will be available at `http://localhost:5000`*
+
+### 2. Frontend Setup
+
+In a new terminal window, navigate to the `frontend` directory:
+
+```bash
+cd frontend
+npm install
+npm run dev
 ```
+*The frontend will be available at `http://localhost:3000`*
 
-## Installation
+---
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd my-monitoring-app
-   ```
+## 🚀 Production Deployment (Render)
 
-2. Set up the backend:
-   - Navigate to the `backend` directory:
-     ```
-     cd backend
-     ```
-   - Install the required Python packages:
-     ```
-     pip install -r requirements.txt
-     ```
+This project is fully configured for automated cloud deployment using **Render Blueprints**. 
 
-3. Set up the frontend:
-   - Navigate to the `frontend` directory:
-     ```
-     cd ../frontend
-     ```
-   - Install the required Node.js packages:
-     ```
-     npm install
-     ```
+The included `render.yaml` defines both the backend Web Service and the frontend Next.js application, automatically wiring the environment variables (like `NEXT_PUBLIC_API_URL`) between them.
 
-## Usage
+### Steps to Deploy:
+1. Push this repository to your GitHub account.
+2. Log into your [Render Dashboard](https://dashboard.render.com/).
+3. Click **New +** and select **Blueprint**.
+4. Connect your GitHub repository.
+5. Render will automatically detect the `render.yaml` configuration and deploy both your Flask API and Next.js frontend seamlessly.
 
-1. Start the Flask backend:
-   ```
-   cd backend
-   python app.py
-   ```
+---
 
-2. Start the Next.js frontend:
-   ```
-   cd frontend
-   npm run dev
-   ```
+## 🤝 Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-3. Open your browser and navigate to `http://localhost:3000` to access the application.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+## 📝 License
+Distributed under the MIT License. See `LICENSE` for more information.
