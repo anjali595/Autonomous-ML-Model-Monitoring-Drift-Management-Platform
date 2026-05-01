@@ -2,6 +2,7 @@ services:
   - type: web
     name: ml-monitoring-backend
     env: python
+    plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
@@ -14,6 +15,7 @@ services:
   - type: web
     name: ml-monitoring-frontend
     env: node
+    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     startCommand: npm start
