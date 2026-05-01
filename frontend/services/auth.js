@@ -1,8 +1,15 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
-// Auth endpoints are at /auth/* (NOT under /api)
-const AUTH_BASE_URL = process.env.NEXT_PUBLIC_AUTH_URL || 'http://localhost:5000';
+const envAuthUrl = process.env.NEXT_PUBLIC_AUTH_URL;
+const envApiUrl = process.env.NEXT_PUBLIC_API_URL;
+let AUTH_BASE_URL = 'http://localhost:5000';
+
+if (envAuthUrl) {
+  AUTH_BASE_URL = envAuthUrl;
+} else if (envApiUrl) {
+  AUTH_BASE_URL = envApiUrl.replace(/\/api$/, '');
+}
 
 const authApi = axios.create({
   baseURL: AUTH_BASE_URL,
