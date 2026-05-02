@@ -62,24 +62,3 @@ npm run dev
 *The frontend will be available at `http://localhost:3000`*
 
 ---
-
-## 🚀 Production Deployment (Render)
-
-This project is fully configured for automated cloud deployment using **Render Blueprints**. 
-
-The included `render.yaml` defines both the backend Web Service and the frontend Next.js application, automatically wiring the environment variables (like `NEXT_PUBLIC_API_URL`) between them.
-
-### Steps to Deploy:
-1. Push this repository to your GitHub account.
-2. Log into your [Render Dashboard](https://dashboard.render.com/).
-3. Click **New +** and select **Blueprint**.
-4. Connect your GitHub repository.
-5. Render will automatically detect the `render.yaml` configuration and deploy both your Flask API and Next.js frontend seamlessly.
-
----
-
-## 🤝 Contributing
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-## 📝 License
-Distributed under the MIT License. See `LICENSE` for more information.
